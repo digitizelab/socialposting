@@ -1,0 +1,21 @@
+{
+    "name": "digitizelab/socialposting",
+    "description": "This is for developement purposes only, do not use in production environment",
+    "require": {
+        "php": ">=5.5.0",
+        "abraham/twitteroauth": "0.6.4"
+    },
+    "license": "MIT License (MIT)",
+    "authors": [
+        {
+            "name": "Nishan Karunarathna",
+            "email": "nishan@digitizelab.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "SocialPosting\\": "src"
+        }
+    }
+}
