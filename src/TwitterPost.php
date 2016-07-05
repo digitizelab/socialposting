@@ -59,7 +59,7 @@ class TwitterPost
      */
     public function setAccessToken($oauth_token, $oauth_verifier)
     {
-        $initialConnection = new Abraham\TwitterOAuth\TwitterOAuth($this->config['CONSUMER_KEY'], $this->config['CONSUMER_SECRET'], $this->session['twitter_oauth_token'], $this->session['twitter_oauth_token_secret']);
+        $initialConnection = new \Abraham\TwitterOAuth\TwitterOAuth($this->config['CONSUMER_KEY'], $this->config['CONSUMER_SECRET'], $this->session['twitter_oauth_token'], $this->session['twitter_oauth_token_secret']);
         $access_token = $initialConnection->oauth("oauth/access_token", ["oauth_token" => $oauth_token, "oauth_verifier" => $oauth_verifier]);
         $this->session['twitter_access_token'] = $access_token;
         return $this->setAuthenticatedConnection($access_token);
@@ -71,7 +71,7 @@ class TwitterPost
      */
     protected function setAuthenticatedConnection()
     {
-        return $this->connection = new Abraham\TwitterOAuth\TwitterOAuth($this->config['CONSUMER_KEY'], $this->config['CONSUMER_SECRET'], $this->session['twitter_access_token']['oauth_token'], $this->session['twitter_access_token']['oauth_token_secret']);
+        return $this->connection = new \Abraham\TwitterOAuth\TwitterOAuth($this->config['CONSUMER_KEY'], $this->config['CONSUMER_SECRET'], $this->session['twitter_access_token']['oauth_token'], $this->session['twitter_access_token']['oauth_token_secret']);
     }
 
     /**
@@ -93,7 +93,4 @@ class TwitterPost
         return $this->setAuthenticatedConnection()->post("statuses/update", ["status" => $status]);
     }
     
-    public static function test(){
-        return 'Testing Package';
-    }
 }
